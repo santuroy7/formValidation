@@ -33,14 +33,6 @@ function App() {
     setData(newObj);
   };
   const handleValidation = () => {
-    // if (data.password === "") {
-    //   const newObj = {
-    //     ...errorMessage,
-    //     password: "Password is required",
-    //   };
-    //   console.log(newObj);
-    //   setErrorMessage(newObj);
-    // }
     if (!validator.isEmail(data.email)) {
       const newObj = {
         ...errorMessage,
@@ -55,7 +47,6 @@ function App() {
       setErrorMessage(newObj);
     }
   };
-  // console.log(data.email);
   return (
     <div className="App">
       <h1>Hello</h1>
@@ -81,9 +72,7 @@ function App() {
               setPassword(e.target.value);
             }}
           />
-          {/* <span>
-            {errorMessage.password !== "" ? <p>{errorMessage.password}</p> : ""}
-          </span> */}
+
           <br />
           <label htmlFor="cpassword">Confirm Password</label>
           <input
@@ -94,7 +83,7 @@ function App() {
           />
           <br />
           <button onClick={handleNextButton}>Next</button>
-          {showDetails ? <Details /> : ""}
+          {showDetails && <Details />}
         </form>
       </div>
     </div>
